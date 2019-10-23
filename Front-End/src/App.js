@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-import Yasmin from "./components/yasmin";
+import Yasmin from './components/yasmin';
+import BkVideo from './components/yaser'
+import 'bootstrap/dist/css/bootstrap.css'
+import Show from './components/amal'
+import Footer from './components/yaser2'
+import Rahma from './components/rahma'
 import axios from 'axios';
 
 class App extends Component {
@@ -56,14 +61,18 @@ class App extends Component {
     const { getRequest } = this;
     return (
       <div>
+        <BkVideo/>
         <h1>Toursim Website</h1>
+        <Yasmin getRequest={getRequest}/>
+        <Show/>
+        <Rahma/>
+        <Footer/>
         <button onClick={getRequest}>get Request</button>
         {
           places.map((place,index)=>{
             return (<div><h1>{place.title}</h1><img src={place.imageUrl} alt='Dead Sea'/><p>{place.description}</p></div>)
           })
         }
-        <Yasmin places={places} />
       </div>
     );
   }

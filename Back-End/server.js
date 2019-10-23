@@ -21,6 +21,7 @@ app.get("/places", (req, res) => {
   });
 });
 
+
 //=================== POST =====================//
 app.post("/addPlace", (req, res) => {
   let inputs=req.body;
