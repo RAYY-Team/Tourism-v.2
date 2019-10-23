@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Yasmin from "./components/yasmin";
+import axios from 'axios';
 
 class App extends Component {
   state = {
@@ -57,6 +58,11 @@ class App extends Component {
       <div>
         <h1>Toursim Website</h1>
         <button onClick={getRequest}>get Request</button>
+        {
+          places.map((place,index)=>{
+            return (<div><h1>{place.title}</h1><img src={place.imageUrl} alt='Dead Sea'/><p>{place.description}</p></div>)
+          })
+        }
         <Yasmin places={places} />
       </div>
     );
