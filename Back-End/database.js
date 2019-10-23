@@ -16,6 +16,7 @@ db.once("open", function() {
 
 //================== SCHEMA ===================//
 let placesSchema = new mongoose.Schema({
+  placeName: String,
   title: String,
   description: String,
   imageUrl: String
@@ -39,9 +40,14 @@ let getPlaces = callBack => {
 let addPlace = (callBack, obj) => {
   console.log("INSERT DATA TO DATABASE");
   Places.insertMany(
-  [
-      { title: obj.title, description: obj.description, imageUrl: obj.imageUrl }
-   ] ,
+    [
+      {
+        placeName: obj.placeName,
+        title: obj.title,
+        description: obj.description,
+        imageUrl: obj.imageUrl
+      }
+    ],
     function(err, newPlace) {
       if (err) {
         console.log("ERR:", err);
